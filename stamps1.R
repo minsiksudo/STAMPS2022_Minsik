@@ -55,6 +55,49 @@ rm(list = ls())
         # how many lows and howm any columns in this object?
         str(surveys) # 34786 rows and 13 columns
         
+
         
+        
+######Latter session (after 7:40 PM)
+        
+#date and time
+        
+        library(lubridate)
+        my_date <- ymd("2015-01-01")        
+        str(my_date)
+
+#Selecting data
+                
+        # select only columns plot_id, species_id and weight
+        
+        select(surveys, plot_id, species_id, weight)
+        
+        #Everything but plot_id, species_id and weight
+        select(surveys, -plot_id, -species_id, -weight)
+        
+        # just get the row wehre the eyar equals 1995
+        
+        filter(surveys, year == 1995)
+        
+        survey1995 <- filter(surveys, year == 1995)
+        survey1995
+
+        
+#Pipes
+        #Creating a data frame where
+        #weight < 5
+        #colums of species_id, sew, weight
+        new_survey <- surveys %>%
+                        filter(weight < 5) %>%
+                        select(species_id, sex, weight)
+        new_survey
+
+#task
+        #Using pipes, subset the surveys data to include animals collcted
+        #before 1995
+        #columns only yea, sex and weight
+        surveys %>%
+                filter( year < 1995) %>%
+                select(year, sex, weight)
         
         
