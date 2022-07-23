@@ -1,3 +1,5 @@
+rm(list = ls())
+
 3+3
 
         
@@ -30,12 +32,29 @@
         months
         as.character(animals)
         
-        dir.create("data_raw")
+        #dir.create("data_raw")
         download.file(url = "https://ndownloader.figshare.com/files/2292169",
                       destfile = "data_raw/portal_data_joined.csv")
-        list.files()
-        data <- read.csv("data_raw/portal_data_joined.csv")
         
 #installing packages
         
-        install.packages()
+        #install.packages("tidyverse")
+        
+#loading packages
+        library(tidyverse)
+        
+#laoding data
+        surveys <- read_csv("data_raw/portal_data_joined.csv")
+        str(surveys)
+        view(surveys)        
+        glimpse(surveys)    
+        head(surveys)
+
+        #Q: what is the class of the object surveys? 
+        class(surveys) # it is a dataframe
+        # how many lows and howm any columns in this object?
+        str(surveys) # 34786 rows and 13 columns
+        
+        
+        
+        
