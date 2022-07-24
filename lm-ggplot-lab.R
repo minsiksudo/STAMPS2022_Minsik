@@ -217,7 +217,7 @@ summary(mod_treat_type)
 
 # We can fit an interaction model by replacing the `+` above with `*`. 
 
-mod_interact <- lm(both, ddpcr ~ `Sample Type` * `Treatment Group`)
+mod_interact <- lm(ddpcr ~ `Sample Type` * `Treatment Group`, data = both)
 summary(mod_interact)
 
 # Now we have an extra row. Not only do we have rows for `Sample Type`Sputum and 
