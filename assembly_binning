@@ -77,4 +77,41 @@
    68  df -h
    69  hitory
    70  history
-(atlas) stamps2022@149.165.153.161:~/atlas_worflow$ 
+
+#Evening session
+
+    1  source ~/.bashrc
+    2  conda activate gtotree
+    3  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only
+    4  printf "K03895\n" > aerobactin-KOs.txt
+    5  head -n 4 GTDB-Alteromonas-genus-GTDB-rep-accs.txt > accs.tmp
+    6  GToTree -a accs.tmp -H Bacteria -o gtotree-out-tmp -K aerobactin-KOs.txt -j 20
+    7  rm -rf GTDB-Alteromonas-genus-GTDB-rep-accs.txt GTDB-Alteromonas-genus-GTDB-rep-metadata.tsv gtotree-out-tmp accs.tmp aerobactin-KOs.txt
+    8  ls
+    9  cd a
+   10  cd atlas_worflow/
+   11  ls
+   12  lsss -S SRR8859675/assembly/contig_stats/final_contig_stats.txt 
+   13  less -S SRR8859675/assembly/contig_stats/final_contig_stats.txt 
+   14  less -S SRR8859675/assembly/contig_stats/postfilter_coverage_binned.txt 
+   15  less -S SRR8859675/assembly/contig_stats/postfilter_coverage_stats.txt 
+   16  conda activate
+   17  atlas activate
+   18  conda activate at
+   19  conda activate atlas
+   20  atlas run binning --list-code-changes
+   21  atlas run binning
+   
+   #Run failed
+  #Check the log file 
+   22  less SRR8859675/logs/binning/DASTool/checkm.log
+
+# Killed --> RAM shortage
+
+23  atlas run binning -n
+   24  ls SRR8859675/
+   25  ls SRR8859675/binning/
+   26  ls SRR8859675/binning/DASTool/
+   27  ls SRR8859675/binning/DASTool/bins/
+   28  hi8story
+   29  hisory
