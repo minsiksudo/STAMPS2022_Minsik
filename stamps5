@@ -1,0 +1,33 @@
+#Checking pathway
+77  ls data/all_samples/fastq_files
+#Open conda
+78  conda activate treangen
+#Download files
+79  wget https://www.dropbox.com/s/0w0wp73mw7i1t0l/quality_control_short_read_zymo.tar.gz
+80  tar -xzf quality_control_short_read_zymo.tar.gz
+   81  ls
+   82  ls raw_sequences
+ #Checking sequence files
+   83  head raw_sequences/SRR18488973_1.fastq 
+   
+   #Pre-filtering data quality assessment
+   
+   84  fastqc raw_sequences/SRR18488973_1.fastq raw_sequences/SRR18488973_2.fastq
+   
+   #Check HTML output
+   
+   85  raw_sequences
+   86  cd raw_sequences/
+   87  ls
+   88  filtered_sequences
+   89  mkdir filtered_sequences
+   90  fastp --in1 raw_sequences/SRR18488973_1.fastq --in2 raw_sequences/SRR18488973_2.fastq --out1 filtered_sequences/SRR18488973_1.filtered.fastq --out2 filtered_sequences/SRR18488973_2.filtered.fastq --cut_front --cut_tail --cut_window_size 4 --cut_mean_quality 30 --qualified_quality_phred 30 --unqualified_percent_limit 30 --n_base_limit 5 --length_required 80 --detect_adapter_for_pe
+   91  ls
+   92  cd ..
+   93  fastp --in1 raw_sequences/SRR18488973_1.fastq --in2 raw_sequences/SRR18488973_2.fastq --out1 filtered_sequences/SRR18488973_1.filtered.fastq --out2 filtered_sequences/SRR18488973_2.filtered.fastq --cut_front --cut_tail --cut_window_size 4 --cut_mean_quality 30 --qualified_quality_phred 30 --unqualified_percent_limit 30 --n_base_limit 5 --length_required 80 --detect_adapter_for_pe
+   94  mv raw_sequences/filtered_sequences filtered_sequences
+   95  ls
+   96  fastp --in1 raw_sequences/SRR18488973_1.fastq --in2 raw_sequences/SRR18488973_2.fastq --out1 filtered_sequences/SRR18488973_1.filtered.fastq --out2 filtered_sequences/SRR18488973_2.filtered.fastq --cut_front --cut_tail --cut_window_size 4 --cut_mean_quality 30 --qualified_quality_phred 30 --unqualified_percent_limit 30 --n_base_limit 5 --length_required 80 --detect_adapter_for_pe
+   97  ls filtered_sequences/
+   98  fastqc filtered_sequences/SRR18488973_1.filtered.fastq filtered_sequences/SRR18488973_2.filtered.fastq
+   99  multiqc .
