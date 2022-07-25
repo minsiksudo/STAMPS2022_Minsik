@@ -1,0 +1,80 @@
+#conda loading
+
+
+1  source ~/.bashrc
+    2  conda activate gtotree
+    3  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only
+    4  printf "K03895\n" > aerobactin-KOs.txt
+    5  head -n 4 GTDB-Alteromonas-genus-GTDB-rep-accs.txt > accs.tmp
+    6  GToTree -a accs.tmp -H Bacteria -o gtotree-out-tmp -K aerobactin-KOs.txt -j 20
+    7  rm -rf GTDB-Alteromonas-genus-GTDB-rep-accs.txt GTDB-Alteromonas-genus-GTDB-rep-metadata.tsv gtotree-out-tmp accs.tmp aerobactin-KOs.txt
+    8  df -h
+    9  df -h.
+   10  df -h .
+#checking the system resources
+11  free -mh
+   12  nproc
+   13  free -mh
+   14  conda activate
+   15  conda config --add channels defaults
+   16  conda config --add channels bioconda
+   
+   #changing limit of resources will be used
+   
+   
+   17  condi config --add channels conda-forge
+   18  conda config --add channels conda-forge
+   19  cd ~
+   20  ls
+   21  mkdir atlas_worflow
+   22  cd atlas_worflow/
+   23  ls
+   24  mamba create -y -n atlas metagenome-atlas=2.9.1
+   25  conda activate atlas
+   26  atlas 
+   27  mkdir data
+   28* wget -0 dta/SRR8859675_R1.fq.gz https://osf.iowget -O data/SRR8859675_R1.fq.gz https://osf.io/mhr9y/download
+/mhr9y/download
+   29  wget -0 dta/SRR8859675_R2.fq.gz https://osf.io/8usdv/download
+   30  wget --0 dta/SRR8859675_R1.fq.gz https://osf.io/mhr9y/download
+   31  wget -0 dta/SRR8859675_R1.fq.gz https://osf.io/mhr9y/download
+   32  wget -O data/SRR8859675_R1.fq.gz https://osf.io/mhr9y/download
+   33  wget -O data/SRR8859675_R2.fq.gz https://osf.io/8usdv/download 
+   34  ls -lh data
+   35  -rw-rw-r-- 1 stamps2022 stamps2022 40M Jul 24 18:22 SRR8859675_R1.fq.gz
+   36  ls -lh data
+   37  atlas init data/ --assembler megahit --data-type metagenome
+   38  less config.yaml
+   39  nanao config.yaml
+   40  nano config.yaml
+   41  less config.yaml
+   42  cat samples.tsv
+   43  atlas run qc -n
+   44  atlas run qc
+   45  finisehd_QC
+   46  ls
+   47  Complete log: .snakemake/log/2022-07-21T125750.640127.snakemake.log
+   48  SRR8859675/  config.yaml  data/  databases/  finished_QC  logs/  ref/  reports/  samples.tsv  stats/
+   49  ls SRR8859675/
+   50  ls SRR8859675/sequence_quality_control/
+   51  ls SRR8859675/sequence_quality_control/contaminants/
+   52  atlas run assembly -n
+   53  atlas run assembly
+   54  ls
+   55  ls SRR8859675/
+   56  ls -lh SRR8859675/assembly/
+   57  ls -lh SRR8859675/assembly/SRR8859675_final_contigs.fasta 
+   58  less SRR8859675/assembly/SRR8859675_final_contigs.fasta 
+   59  less SRR8859675/assembly/SRR8859675_final_contigs.fasta |grep SRR8859675
+   60  less SRR8859675/assembly/SRR8859675_final_contigs.fasta |grep SRR8859675 | wc
+   61  less SRR8859675/assembly/SRR8859675_final_contigs.fasta | grep _
+   62* less SRR8859675/assembly/SRR8859675_final_contigs.fasta
+   63  less SRR8859675/assembly/SRR8859675_final_contigs.fasta | grep _0 | wc
+   64  grep ">" SRR8859675/assemply/SRR8859675_final_contigs.fast | grep ">" SRR8859675/assemply/SRR8859675_final_contigs.fasta
+   65  grep ">" SRR8859675/assembly/SRR8859675_final_contigs.fasta
+   66  grep ">" SRR8859675/assembly/SRR8859675_final_contigs.fasta | wc -l
+   67  less SRR8859675/assembly/SRR8859675_final_contigs.fasta | grep SRR | wc -l
+   68  df -h
+   69  hitory
+   70  history
+(atlas) stamps2022@149.165.153.161:~/atlas_worflow$ 
