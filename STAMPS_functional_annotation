@@ -1,0 +1,43 @@
+    1  source ~/.bashrc
+    2  conda activate gtotree
+    3  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only
+    4  printf "K03895\n" > aerobactin-KOs.txt
+    5  head -n 4 GTDB-Alteromonas-genus-GTDB-rep-accs.txt > accs.tmp
+    6  GToTree -a accs.tmp -H Bacteria -o gtotree-out-tmp -K aerobactin-KOs.txt -j 20
+    7  rm -rf GTDB-Alteromonas-genus-GTDB-rep-accs.txt GTDB-Alteromonas-genus-GTDB-rep-metadata.tsv gtotree-out-tmp accs.tmp aerobactin-KOs.txt
+    8  cd ~
+    9  mkdir functional_annotation
+   10  cd functional_annotation
+   11  ls
+   12  conda deactivate
+   13  cd ~
+   14  cd functional_annotation/
+   15  ls
+   16  mamba create -n annot -c conda-forge -c bioconda -c defaults prodigal=2.6.3 kofamscan=1.3.0
+   17  conda activate annot
+   18  history
+   19  wget -O SRR8859675_final_contigs.fasta https://osf.io/aq2nk/download
+   20  ls
+   21  lss SRR
+   22  lss SRR8859675_final_contigs.fasta 
+   23  less SRR8859675_final_contigs.fasta 
+   24  prodigal -h
+   25  prodigal -i SRR8859675_final_contigs.fasta -d SRR8859675_final_contigs.fna -a SRR8859675_final_contigs.faa -p meta -o SRR8859675_final_contigs.gbk
+   26  less SRR8859675_final_contigs.faa
+   27  exec_annotation --help
+   28  wget ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz      # download the ko list 
+   29  wget ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz # download the hmm profiles
+   30  ls
+   31  gunzip ko_list.gz
+   32  tar xf profiles.tar.gz
+   33  ls
+   34  nano config.yaml
+   35  ls
+   36  exec_annotaiont -f mapper --config config.yaml -o SRR8859675_final_contigs.faa
+   37  exec_annotation -f mapper --config config.yaml -o SRR8859675_final_contigs_kofamscan.txt SRR8859675_final_contigs.faa
+   38  less SRR8859675_final_contigs_kofamscan.txt 
+   39  mamba create -n keggdecoder python=3.6 pip
+   40  conda activate keggdecoder
+   41  pip install KEGGDecoder==1.2.2
+   42  less SRR8859675_final_contigs_kofamscan.txt 
+   43  KEGG-decoder -i SRR8859675_final_contigs_kofamscan.txt -o kegg_decoder_out --vizoption static
