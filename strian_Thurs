@@ -1,0 +1,26 @@
+   84  mkdir parsnp_demo1
+   85  ..
+   86  conda activate base
+   87* conda activate trea
+   88  mkdir parsnp_demo1
+   89  ls
+   90  cd parsnp_demo1/
+   91  wget https://github.com/marbl/harvest/raw/master/docs/content/parsnp/mers49.tar.gz
+   92  tar -xvf mers49.tar.gz 
+   93  parsnp -r ./mers49/England1.fna -d ./mers49 -c
+   94  ls
+   95  GGR <run_mers.gingr2.ggr>
+   96  cd $HOME
+   97  mkdir parsnp_demo2
+   98  wget https://github.com/marbl/harvest/raw/master/docs/content/parsnp/strep31.tar.gz
+   99  tar -xvf strep31.tar.gz 
+  100  cd parsnp_demo2
+  101  wget https://github.com/marbl/harvest/raw/master/docs/content/parsnp/strep31.tar.gz
+  102  tar -xvf strep31.tar.gz 
+  103  ls
+  104  ls strep31
+  105  parsnp -r ./strep31/NC_011900.fna -d ./strep31 -p 8
+  106  parsnp -r ./strep31/NC_011900.fna -d ./strep31 -p 8 -c
+  107  historuy
+  108  history
+(treangen) stamps2022@149.165
