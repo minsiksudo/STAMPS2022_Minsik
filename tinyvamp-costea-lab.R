@@ -41,8 +41,9 @@ if (!require("remotes", quietly = TRUE))
   install.packages("remotes") # check that remotes is installed
 
 # Install tinyvamp using remotes and build vignettes:
- remotes::install_github("https://github.com/statdivlab/tinyvamp")
-install.packages("fastnnls")
+ #remotes::install_github("https://github.com/ailurophilia/fastnnls")
+ #remotes::install_github("https://github.com/statdivlab/tinyvamp")
+
  
 library(tinyvamp)
 
