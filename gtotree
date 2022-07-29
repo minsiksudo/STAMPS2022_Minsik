@@ -1,0 +1,41 @@
+    1  source ~/.bashrc
+    2  conda activate gtotree
+    3  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only
+    4  printf "K03895\n" > aerobactin-KOs.txt
+    5  head -n 4 GTDB-Alteromonas-genus-GTDB-rep-accs.txt > accs.tmp
+    6  GToTree -a accs.tmp -H Bacteria -o gtotree-out-tmp -K aerobactin-KOs.txt -j 20
+    7  rm -rf GTDB-Alteromonas-genus-GTDB-rep-accs.txt GTDB-Alteromonas-genus-GTDB-rep-metadata.tsv gtotree-out-tmp accs.tmp aerobactin-KOs.txt
+    8  conda activate gtotree
+    9  mkdir -p ~/gtotree
+   10  cd ~/gtotree/
+   11  curl -L -o Alteromonas-MAGs.tar https://figshare.com/ndownloader/files/36444270
+   12  tar -xf Alteromonas-MAGs.tar
+   13  ls *.gz
+   14  ls *.gz > our-fasta-files.txt
+   15  head our-fasta-files.txt 
+   16  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only --get-taxon-counts
+   17  gtt-get-accessions-from-GTDB -t Alteromonas --GTDB-representatives-only
+   18  head GTDB-Alteromonas-genus-GTDB-rep-
+   19  head GTDB-Alteromonas-genus-GTDB-rep-accs.txt 
+   20  printf "K00001\nK03782\nK03895\nK16092\n" > target-KOs.txt
+   21  head target-KOs.txt 
+   22  less target-KOs.txt 
+   23  GToTree -a GTDB-Alteromonas-genus-GTDB-rep-accs.txt         -f our-fasta-files.txt         -H Bacteria -K target-KOs.txt         -D -L Species -j 8         -o alteromonas-gtotree-output
+   24  ls
+   25  cd alteromonas-gtotree-output/
+   26  ls
+   27  cut -f 1 -d "." our-fasta-files.txt > MAG-labels.txt
+   28  head MAG-labels.txt 
+   29  cd ..
+   30  cut -f 1 -d "." our-fasta-files.txt > MAG-labels.txt
+   31  head MAG-labels.txt 
+   32  gtt-gen-itol-map -w labels -o iToL-label-colors.txt -g MAG-labels.txt
+   33  head iToL-label-colors.txt
+   34  ls
+   35  ls alteromonas-gtotree-output/
+   36  ls alteromonas-gtotree-output/KO_search_results/
+   37  head alteromonas-gtotree-output/KO_search_results/KO-hit-counts.tsv | column -t
+   38  head alteromonas-gtotree-output/KO_search_results/KO_hit_seqs/K00001-hits.faa  | sed 's/^/# /'
+   39  ls alteromonas-gtotree-output/KO_search_results/iToL_files/
+   40  history
+(gtotree) stamps2022@149.165
